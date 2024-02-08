@@ -82,7 +82,7 @@
         </style>
         <script>
             const getAns = async () => {
-                let url2 = "http://127.0.0.1:5100/" + "?function=" + document.getElementById("functions").value
+                let url2 = "https://polynomial.khaled.works/" + "?function=" + document.getElementById("functions").value
                 const res = await fetch(url2, {
                     method: "GET"
                 }).then(response => response.json())
