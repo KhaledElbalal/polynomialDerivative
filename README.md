@@ -22,7 +22,7 @@ $$
 \end{bmatrix}_{3 \times 3}
 $$
 
-This matrix will have the effect of shifting each coefficient to $$ \(\frac{d}{dx} x^{n-1}\) $$ and multiplying it by $$ \(n\) $$.
+This matrix will have the effect of shifting each coefficient to $\(\frac{d}{dx} x^{n-1}\)$ and multiplying it by $\(n\)$.
 
 ## Technologies Used
 * Python
