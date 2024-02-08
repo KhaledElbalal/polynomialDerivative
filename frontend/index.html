@@ -82,10 +82,9 @@
         </style>
         <script>
             const getAns = async () => {
-                let url2 = "http://127.0.0.1:5000/diff" + "?function=" + document.getElementById("functions").value
+                let url2 = "http://127.0.0.1:5100/" + "?function=" + document.getElementById("functions").value
                 const res = await fetch(url2, {
-                    method: "GET",
-                    mode: 'cors'
+                    method: "GET"
                 }).then(response => response.json())
                     .then(data => {
                         console.log(data.name)
@@ -103,11 +102,11 @@
     <body>
         <div class="py-10 mx-auto lg:py-16 lg:max-w-xl">
             <h1 class="text-2xl font-bold">Using Linear Transformations for Derivative Calculation</h1>
-            <p>Since we can treat the derivative operation for polynomials as a Vector spaces, since the properties of linearity applies to the derivative operation i.e.
+            <p>When dealing with the derivative operation for polynomials, we can consider it within the framework of a vector space. This perspective allows us to apply the properties of linearity to the derivative operation. Specifically, we observe that:
                 $$ \frac{d}{dx} (f(x)+g(x)) = \frac{d}{dx} f(x) + \frac{d}{dx}g(x)$$
-            and we also know that 
+                Additionally, we recognize the linearity property when a constant $ c $ multiplies a function:
                 $$ \frac{d}{dx}cf(x)=c\frac{d}{dx},  c \in R $$
-            So we can define the derivative as a linear transformation with the following matrix
+                With these considerations, we can conceptualize the derivative as a linear transformation. This transformation can be represented by the following matrix:
             $$ \begin{bmatrix}
             0 & 1 & 0 & 0 & ..\\
             0 & 0 & 2 & 0 & .. \\
@@ -127,8 +126,8 @@
             </p>
             <div class="space-y-6">
                 <input id="functions" class="block w-full px-8 py-6 text-lg font-bold text-black rounded-lg placeholder:text-gray-300 bg-brand active:outline-none focus:outline-none" placeholder="Enter function to be calculated" oninput="change()"></input>
-                <button type="submit" id="BTN" onclick="getAns()" class="block mx-4 my-4 w-full bg-black text-white lg:inline-block btn">Submit</button>
-                <p>After combining like terms the derivative for:</p>
+                <button type="submit" id="BTN" onclick="getAns()" class="block my-4 w-full bg-black text-white lg:inline-block btn">Submit</button>
+                <p>The derivative for:</p>
                 <div id="function">$$3x$$</div>
                 <p>is:</p>
                 <div id="answer">$$0$$</div>

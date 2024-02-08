@@ -1,7 +1,4 @@
 import numpy as np
-from waitress import serve
-from flask import Flask, jsonify, render_template, request
-from flask_cors import CORS
 
 
 def getDerivative(polynomial):
@@ -76,31 +73,3 @@ def getDerivative(polynomial):
         answer = answer[1:]
     # Return derivative
     return answer
-
-
-def main():
-    app = Flask(__name__)
-    CORS(app)
-
-    @app.route('/diff')
-    def diff():
-        # if key doesn't exist, returns None
-        try:
-            function = request.args.get('function')
-            value = getDerivative(function)
-            print(value)
-            response = jsonify({"name": value})
-            response.headers.add('Access-Control-Allow-Origin', '*')
-            return response.json
-        except Exception as ex:
-            print(ex)
-    serve(
-        app,
-        host="0.0.0.0",
-        port=5000,
-        url_scheme='https'
-    )
-
-
-if __name__ == '__main__':
-    main()
